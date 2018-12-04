@@ -1,4 +1,4 @@
-const resource = {
+const submissionData = {
     afqResource: {
         id: 265,
         agencyId: 2,
@@ -897,4 +897,4 @@ const resource = {
     ]
 };
 
-module.exports.default = resource;
+module.exports.default = submissionData;

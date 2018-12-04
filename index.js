@@ -1,9 +1,9 @@
 // .reduce() Workshop
 
 // Utils
-const consoleSeparator = Array(50)
+const consoleSeparator = `\n${Array(50)
     .fill('=')
-    .join('');
+    .join('')}\n`;
 
 const randomNumber = max => {
     return Math.floor(Math.random() * Math.floor(max));
@@ -16,29 +16,51 @@ const shapesArray = [
     { type: 'TRIANGLE', color: 'Green' }
 ];
 
+const duplicatesArray = [
+    { type: 'CIRCLE', color: 'Blue' },
+    { type: 'CIRCLE', color: 'Blue' },
+    { type: 'CIRCLE', color: 'Blue' },
+    { type: 'CIRCLE', color: 'Blue' },
+    { type: 'SQUARE', color: 'Red' },
+    { type: 'TRIANGLE', color: 'Green' }
+];
+
+const votesArray = [
+    'Chuys',
+    'P.Terrys',
+    'P.Terrys',
+    'P.Terrys',
+    'Chuys',
+    'Chuys',
+    'P.Terrys',
+    'Hula Hut'
+];
+
 const hugeArray = Array(50000)
     .fill(null)
     .map(() => shapesArray[randomNumber(shapesArray.length)]);
 
-const submissionData = require('./mockSubmission').default;
+const submissionData = require('./submissionData').default;
+const sectionData = require('./sectionData').default;
 
 // ================================================
 
 // 1. Anatomy of reduce
 
-const reducerFunction1 = (accumulator, currentItem) => {
-    console.log('currentItem', currentItem);
-    return accumulator;
-};
-const initialValue1 = [];
+// const reducerFunction1 = (accumulator, currentItem) => {
+//     console.log('currentItem', currentItem);
+//     return accumulator;
+// };
+// const initialValue1 = [];
 
-const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
+// const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
+// console.log(consoleSeparator);
 
 // ================================================
 
 // 2. .map() vs. .filter() vs. .reduce()
 
-// Individual operations
+// // Individual operations
 // const mappedShapesArray2 = shapesArray.map((shape, index) => ({
 //     ...shape,
 //     id: index
@@ -103,7 +125,40 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // ================================================
 
-// 4. Complex Data
+// 4. Remove duplicates: Array => Array
+
+// const deDupedArray = duplicatesArray.reduce((deDuped, currentItem) => {
+//     const hasType = item => item.type === currentItem.type;
+//     if (!deDuped.find(hasType)) {
+//         deDuped.push(currentItem);
+//     }
+
+//     return deDuped;
+// }, []);
+
+// console.log(duplicatesArray);
+// console.log(consoleSeparator);
+// console.log(deDupedArray);
+
+// ================================================
+
+// 5. Voting: Array => Object
+
+// const voteCount = votesArray.reduce((voteTally, currentItem) => {
+//     if (voteTally[currentItem] === undefined) {
+//         voteTally[currentItem] = 1;
+//     } else {
+//         voteTally[currentItem] = voteTally[currentItem] + 1;
+//     }
+
+//     return voteTally;
+// }, {});
+
+// console.log(voteCount);
+
+// ================================================
+
+// 6. Complex Data
 // Use .reduce(), .map(), and .filter() together
 
 // const { paymentSummaryList } = submissionData;
@@ -137,3 +192,32 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 // );
 
 // console.log(reducedPaymentSummary);
+
+// ================================================
+
+// 7. Constiuent Form Data
+
+const flattenFieldsetsBySection = sections => {
+    return sections.reduce((panelDataArr, section) => {
+        if (section.pages.length > 0) {
+            const reducedFieldsets = section.pages.reduce(
+                (fieldsetArr, page) => {
+                    if (page.fieldsets && page.fieldsets.length > 0) {
+                        page.fieldsets.forEach(fieldsetObj =>
+                            fieldsetArr.push(fieldsetObj)
+                        );
+                    }
+
+                    return fieldsetArr;
+                },
+                []
+            );
+
+            panelDataArr.push(reducedFieldsets);
+        }
+
+        return panelDataArr;
+    }, []);
+};
+
+console.log(flattenFieldsetsBySection(sectionData.displaySections));
