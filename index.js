@@ -47,14 +47,13 @@ const sectionData = require('./sectionData').default;
 
 // 1. Anatomy of reduce
 
-// const reducerFunction1 = (accumulator, currentItem) => {
-//     console.log('currentItem', currentItem);
-//     return accumulator;
-// };
-// const initialValue1 = [];
+const reducerFunction1 = (accumulator, currentItem) => {
+    console.log('currentItem', currentItem);
+    return accumulator;
+};
+const initialValue1 = [];
 
-// const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
-// console.log(consoleSeparator);
+const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // ================================================
 
@@ -197,27 +196,27 @@ const sectionData = require('./sectionData').default;
 
 // 7. Constiuent Form Data
 
-const flattenFieldsetsBySection = sections => {
-    return sections.reduce((panelDataArr, section) => {
-        if (section.pages.length > 0) {
-            const reducedFieldsets = section.pages.reduce(
-                (fieldsetArr, page) => {
-                    if (page.fieldsets && page.fieldsets.length > 0) {
-                        page.fieldsets.forEach(fieldsetObj =>
-                            fieldsetArr.push(fieldsetObj)
-                        );
-                    }
+// const flattenFieldsetsBySection = sections => {
+//     return sections.reduce((panelDataArr, section) => {
+//         if (section.pages.length > 0) {
+//             const reducedFieldsets = section.pages.reduce(
+//                 (fieldsetArr, page) => {
+//                     if (page.fieldsets && page.fieldsets.length > 0) {
+//                         page.fieldsets.forEach(fieldsetObj =>
+//                             fieldsetArr.push(fieldsetObj)
+//                         );
+//                     }
 
-                    return fieldsetArr;
-                },
-                []
-            );
+//                     return fieldsetArr;
+//                 },
+//                 []
+//             );
 
-            panelDataArr.push(reducedFieldsets);
-        }
+//             panelDataArr.push(reducedFieldsets);
+//         }
 
-        return panelDataArr;
-    }, []);
-};
+//         return panelDataArr;
+//     }, []);
+// };
 
-console.log(flattenFieldsetsBySection(sectionData.displaySections));
+// console.log(flattenFieldsetsBySection(sectionData.displaySections));
