@@ -41,7 +41,7 @@ const sectionData = require('./sectionData').default;
 
 // ================================================
 
-// 1. Anatomy of reduce
+// ANATOMY OF REDUCE
 
 const reducerFunction1 = (accumulator, currentItem) => {
     console.log('currentItem', currentItem);
@@ -53,7 +53,7 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // ================================================
 
-// 2. .map() vs. .filter() vs. .reduce()
+// .map() vs. .filter() vs. .reduce()
 
 // // Individual operations
 // const mappedShapesArray2 = shapesArray.map((shape, index) => ({
@@ -91,7 +91,7 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // ================================================
 
-// 3. Speed Test
+// SPEED TEST
 
 // console.time('Map & Filter 3');
 // const mappedAndFilteredShapesArray3 = hugeArray
@@ -118,7 +118,7 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // ================================================
 
-// 4. Remove duplicates: Array => Array
+// REMOVE DUPLICATES: ARRAY => ARRAY
 
 // const deDupedArray = duplicatesArray.reduce((deDuped, currentItem) => {
 //     const hasType = item => item.type === currentItem.type;
@@ -135,7 +135,7 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // ================================================
 
-// 5. Voting: Array => Object
+// VOTING: ARRAY => OBJECT
 
 // const voteCount = votesArray.reduce((voteTally, currentItem) => {
 //     if (voteTally[currentItem] === undefined) {
@@ -151,7 +151,75 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // ================================================
 
-// 6. Complex Data
+// GROUPING
+
+// const scores = [
+//     { id: 1, score: 80 },
+//     { id: 2, score: 91 },
+//     { id: 2, score: 77 },
+//     { id: 4, score: 91 },
+//     { id: 4, score: 95 },
+//     { id: 1, score: 99 },
+//     { id: 1, score: 60 },
+//     { id: 3, score: 64 },
+//     { id: 1, score: 91 },
+//     { id: 3, score: 100 }
+// ];
+
+// const topScoresByGroup = (arr, groupNumber, numTopScores) => {
+//     // Reduce items into specific groups
+//     const groupedScores = arr.reduce((accumulator, currentValue) => {
+//         const groupName = `group${currentValue.id}`;
+//         const initialObject = {
+//             average: 0,
+//             topScores: [],
+//             scores: []
+//         };
+
+//         if (accumulator[groupName] === undefined) {
+//             accumulator[groupName] = initialObject;
+//             accumulator[groupName].scores.push(currentValue.score);
+//         } else {
+//             accumulator[groupName].scores.push(currentValue.score);
+//         }
+
+//         return accumulator;
+//     }, {});
+
+//     // Sort each scores array. Add average score. Get topScores.
+//     for (let group in groupedScores) {
+//         // Find the average
+//         const sumOfAllScores = groupedScores[group].scores.reduce(
+//             (acc, cur) => acc + cur,
+//             0
+//         );
+//         const numberOfScores = groupedScores[group].scores.length;
+//         const averageScore = sumOfAllScores / numberOfScores;
+
+//         // Round up and set value
+//         groupedScores[group].average = Math.ceil(averageScore);
+
+//         // Take numTopScores off of scores array, add to topScores
+//         groupedScores[group].topScores = groupedScores[group].scores
+//             .sort((a, b) => b - a)
+//             .slice(0, numTopScores);
+//     }
+
+//     if (groupNumber) {
+//         return groupedScores[`group${groupNumber}`];
+//     }
+
+//     return groupedScores;
+// };
+
+// // Get the top 3 scores for group 1
+// console.log(topScoresByGroup(scores, 1, 3));
+// // Give back all the grades for all groups
+// console.log(topScoresByGroup(scores, null, 3));
+
+// ================================================
+
+// COMPLEX DATA
 // Use .reduce(), .map(), and .filter() together
 
 // const { paymentSummaryList } = submissionData;
@@ -188,7 +256,7 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // ================================================
 
-// 7. Constiuent Form Data
+// CONSTIUENT FORM DATA
 
 // const flattenFieldsetsBySection = sections => {
 //     return sections.reduce((panelDataArr, section) => {
@@ -217,7 +285,7 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // ================================================
 
-// 8. Piping - Reduce Left to Right
+// PIPING - REDUCE LEFT TO RIGHT
 
 // const double = x => x + x;
 // const triple = x => 3 * x;
@@ -250,7 +318,7 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // ================================================
 
-// 9. Composing - Reduce Right to Left
+// COMPOSING - REDUCE RIGHT TO LEFT
 
 // const saying = 'Reduce all the things';
 
@@ -269,7 +337,7 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // ================================================
 
-// 10. Composing Promises
+// COMPOSING PROMISES
 
 // Node Unhandled Rejection
 // process.on('unhandledRejection', () => {});
