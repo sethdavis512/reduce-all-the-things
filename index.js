@@ -220,3 +220,69 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 // };
 
 // console.log(flattenFieldsetsBySection(sectionData.displaySections));
+
+// ================================================
+
+// 8. Piping - Reduce Left to Right
+
+// const double = x => x + x;
+// const triple = x => 3 * x;
+// const quadruple = x => 4 * x;
+
+// const pipe = (...fns) => input => [...fns].reduce((acc, fn) => fn(acc), input);
+
+// const multiply6 = pipe(
+//     double,
+//     triple
+// );
+// const multiply9 = pipe(
+//     triple,
+//     triple
+// );
+// const multiply16 = pipe(
+//     quadruple,
+//     quadruple
+// );
+// const multiply24 = pipe(
+//     double,
+//     triple,
+//     quadruple
+// );
+
+// console.log(multiply6(6));
+// console.log(multiply9(9));
+// console.log(multiply16(16));
+// console.log(multiply24(10));
+
+// ================================================
+
+// 9. Composing - Reduce Right to Left
+
+// const saying = 'Reduce all the things';
+
+// const scream = str => str.toUpperCase();
+// const exclaim = str => `${str}!`;
+// const repeat = str => `${str} ${str}`;
+// const compose = (...fns) => x => fns.reduceRight((acc, fn) => fn(acc), x);
+
+// const composeSaying = compose(
+//     repeat,
+//     exclaim,
+//     scream
+// );
+
+// console.log(composeSaying(saying));
+
+// ================================================
+
+// 10. Composing Promises (Non working)
+
+// const composePromise = (...fns) => initialValue =>
+//     fns.reduceRight((res, fn) => Promise.resolve(res).then(fn), initialValue);
+
+// // Individual Promises
+// const saveAppFee = () => saveFees(a, b, c);
+// const saveLnpFee = () => saveFees(x, y, z);
+
+// // Composed Promises
+// const saveAppAndLnp = composePromise(saveAppFee, saveLnpFee);
