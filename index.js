@@ -265,7 +265,10 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 //                 (fieldsetArr, page) => {
 //                     if (page.fieldsets && page.fieldsets.length > 0) {
 //                         page.fieldsets.forEach(fieldsetObj =>
-//                             fieldsetArr.push(fieldsetObj)
+//                             fieldsetArr.push({
+//                                 label: fieldsetObj.label,
+//                                 category: fieldsetObj.category
+//                             })
 //                         );
 //                     }
 
