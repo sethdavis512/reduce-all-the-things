@@ -339,7 +339,7 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // COMPOSING PROMISES
 
-// Node Unhandled Rejection
+// // Node Unhandled Rejection
 // process.on('unhandledRejection', () => {});
 // process.on('rejectionHandled', () => {});
 
