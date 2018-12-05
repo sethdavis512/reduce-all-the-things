@@ -1,10 +1,6 @@
 // .reduce() Workshop
 
 // Utils
-const consoleSeparator = `\n${Array(50)
-    .fill('=')
-    .join('')}\n`;
-
 const randomNumber = max => {
     return Math.floor(Math.random() * Math.floor(max));
 };
@@ -93,8 +89,6 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 // );
 // console.timeEnd('Reduce 2');
 
-// console.log(consoleSeparator);
-
 // ================================================
 
 // 3. Speed Test
@@ -136,7 +130,7 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 // }, []);
 
 // console.log(duplicatesArray);
-// console.log(consoleSeparator);
+// console.log('\n');
 // console.log(deDupedArray);
 
 // ================================================
