@@ -273,43 +273,6 @@ const reducedShapesArr = shapesArray.reduce(reducerFunction, initialValue);
 
 // ================================================
 
-// COMPLEX DATA
-// Use .reduce(), .map(), and .filter() together
-
-// const { paymentSummaryList } = submissionData;
-
-// const reducedPaymentSummary = paymentSummaryList.reduce(
-//     (paymentObj, currentPayment) => {
-//         const fees = currentPayment.feeLineitemCollectedSummaryList.map(
-//             item => {
-//                 const { id, price, sku } = item;
-//                 return {
-//                     id,
-//                     price,
-//                     sku,
-//                     label: item.displayLabel,
-//                     type: item.feeType,
-//                     order: item.displayOrder
-//                 };
-//             }
-//         );
-
-//         // If more than one paymentObj
-//         if (paymentObj.fees) {
-//             paymentObj.fees = [...paymentObj.fees, ...fees];
-//         } else {
-//             paymentObj.fees = fees;
-//         }
-
-//         return paymentObj;
-//     },
-//     {}
-// );
-
-// console.log(reducedPaymentSummary);
-
-// ================================================
-
 // CONSTIUENT FORM DATA
 
 // const flattenFieldsetsBySection = sections => {
