@@ -32,6 +32,8 @@ const votesArray = [
     'Hula Hut'
 ];
 
+const numberArray = [12, 15, 30, 38, 10];
+
 const hugeArray = Array(50000)
     .fill(null)
     .map(() => shapesArray[randomNumber(shapesArray.length)]);
@@ -43,13 +45,24 @@ const sectionData = require('./sectionData').default;
 
 // ANATOMY OF REDUCE
 
-const reducerFunction1 = (accumulator, currentItem) => {
+const reducerFunction = (accumulator, currentItem) => {
     console.log('currentItem', currentItem);
     return accumulator;
 };
-const initialValue1 = [];
+const initialValue = [];
 
-const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
+const reducedShapesArr = shapesArray.reduce(reducerFunction, initialValue);
+
+// const reducerFunction1 = (accumulator, currentItem) => {
+//     console.log('\n');
+//     console.log('currentItem', currentItem);
+//     accumulator.push(currentItem);
+//     console.log(accumulator);
+//     return accumulator;
+// };
+// const initialValue1 = [];
+
+// const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // ================================================
 
@@ -118,6 +131,22 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 
 // ================================================
 
+// ADDITION: ARRAY => NUMBER
+
+// const sum = numberArray.reduce((total, num) => {
+//     return total + num;
+// }, 0);
+
+// console.log(sum);
+
+// const crazyMath = numberArray.reduce((total, num) => {
+//     return total + num * 25;
+// }, 2000);
+
+// console.log(crazyMath);
+
+// ================================================
+
 // REMOVE DUPLICATES: ARRAY => ARRAY
 
 // const deDupedArray = duplicatesArray.reduce((deDuped, currentItem) => {
@@ -152,6 +181,31 @@ const reducedShapesArr1 = shapesArray.reduce(reducerFunction1, initialValue1);
 // ================================================
 
 // GROUPING
+
+// const groupedShapes = shapesArray.reduce((shapesObj, currentShape) => {
+//     if (!shapesObj[currentShape.type]) {
+//         shapesObj[currentShape.type] = [currentShape];
+//     } else {
+//         shapesObj[currentShape.type].push(currentShape);
+//     }
+//     return shapesObj;
+// }, {});
+
+// console.log(groupedShapes);
+
+// const groupedShapesWithKeys = shapesArray.reduce(
+//     (shapesObj, currentShape) => {
+//         shapesObj[currentShape.type].push(currentShape);
+//         return shapesObj;
+//     },
+//     {
+//         CIRCLE: [],
+//         SQUARE: [],
+//         TRIANGLE: []
+//     }
+// );
+
+// console.log(groupedShapesWithKeys);
 
 // const scores = [
 //     { id: 1, score: 80 },
