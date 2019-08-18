@@ -14,12 +14,12 @@ const { line, spacer } = require('./utils');
 //        - Source Array (optional)
 const reducerFunction = (accumulator, currentItem, currentIndex, sourceArray) => {
     // Lets see what we're working with...
-    console.log('ITEM NUMBER: ', currentIndex);
+    console.log('ITEM NUMBER:', currentIndex);
     console.log(line);
-    console.log('accumulator: ', accumulator);
-    console.log('currentItem: ', currentItem);
-    console.log('currentIndex: ', currentIndex);
-    console.log('sourceArray: ', sourceArray);
+    console.log('accumulator:', accumulator);
+    console.log('currentItem:', currentItem);
+    console.log('currentIndex:', currentIndex);
+    console.log('sourceArray:', sourceArray);
     console.log(spacer);
 
     // Always return the accumulator!
@@ -33,4 +33,4 @@ const initialValue = [];
 // `reducedShapesArr` return as an empty array
 //  We aren't telling reduce to do anything with the accumulator (initialValue).
 const reducedShapesArr = shapesArray.reduce(reducerFunction, initialValue);
-console.log('reducedShapesArr: ', reducedShapesArr);
+console.log('reducedShapesArr:', reducedShapesArr);

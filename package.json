@@ -1,22 +1,25 @@
 {
-    "name": "reduce-workshop",
-    "version": "0.0.1",
-    "description": "A case for using the Array method `.reduce()`.",
+    "name": "reduce-all-the-things",
+    "version": "0.0.2",
+    "description": "The many ways to use `.reduce()`.",
+    "main": "index.js",
     "scripts": {
-        "start": "nodemon"
+        "start": "node index.js"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/setholito/reduce-workshop.git"
+        "url": "git+https://github.com/setholito/reduce-all-the-things.git"
     },
     "keywords": [],
-    "author": "",
+    "author": "Seth Davis",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/setholito/reduce-workshop/issues"
+        "url": "https://github.com/setholito/reduce-all-the-things/issues"
     },
-    "homepage": "https://github.com/setholito/reduce-workshop#readme",
+    "homepage": "https://github.com/setholito/reduce-all-the-things#readme",
     "devDependencies": {
-        "nodemon": "^1.18.7"
+        "inquirer": "^6.5.1",
+        "nodemon": "^1.18.7",
+        "shelljs": "^0.8.3"
     }
 }
