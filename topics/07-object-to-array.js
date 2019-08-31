@@ -1,9 +1,9 @@
-const { locations } = require('./data');
+const { locations } = require('../utils/data');
 
 // Object to Array
 // aasdfkasdfkasdfkkasdfkasdkfkasdf
 
-const getLocations = (obj) => {
+const getLocations = obj => {
     return Object.keys(obj).reduce((acc, cur) => {
         acc.push(obj[cur]);
         return acc;

@@ -1,6 +1,6 @@
 // Data
-const { hugeArray, shapesArray } = require('./data');
-const { spacer } = require('./utils');
+const { hugeArray, shapesArray } = require('../utils/data');
+const { spacer } = require('../utils/utilFunctions');
 
 // .map() vs. .filter() vs. .reduce()
 
@@ -16,7 +16,7 @@ const mappedShapesArray = shapesArray.map(mapFunction);
 console.log(mappedShapesArray);
 console.log(spacer);
 
-// Filter - Similar story here. Filter on its own can 
+// Filter - Similar story here. Filter on its own can
 // perform simple filters just fine. Straight forward, simple.
 // No need to add unecessary complexity.
 const filterFunction = shape => shape.type !== 'SQUARE';
@@ -52,7 +52,7 @@ const reducedShapesArr = shapesArray.reduce(
 );
 console.timeEnd('Reduce');
 // No not really...That's ok. Chaining methods can make your code
-// very explicit, which will help other devs. 
+// very explicit, which will help other devs.
 console.log(spacer);
 
 // SPEED TEST 2
@@ -76,7 +76,9 @@ const reducedShapesArr2 = hugeArray.reduce(
             accumulator.push(currentItem);
         }
         return accumulator;
-    }, []);
+    },
+    []
+);
 console.timeEnd('Reduce 2');
 // You should see a noticeable difference in completion time.
 // Reduce only has to run through once, making it much more efficient.

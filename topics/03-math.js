@@ -1,5 +1,5 @@
 // Data
-const { numberArray } = require('./data');
+const { numberArray } = require('../utils/data');
 
 // ADDITION: ARRAY => NUMBER
 
@@ -20,6 +20,6 @@ console.log('difference:', difference);
 
 // You can throw in all sorts of math...
 const crazyMath = numberArray.reduce((total, num) => {
-    return total + (num * 25);
+    return total + num * 25;
 }, 0);
 console.log('crazyMath:', crazyMath);

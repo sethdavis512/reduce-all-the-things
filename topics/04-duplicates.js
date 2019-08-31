@@ -1,6 +1,6 @@
 // Data
-const { duplicateShapesArray } = require('./data');
-const { spacer } = require('./utils');
+const { duplicateShapesArray } = require('../utils/data');
+const { spacer } = require('../utils/utilFunctions');
 
 // REMOVE DUPLICATES: ARRAY => ARRAY
 // A very useful way to find unique items in array

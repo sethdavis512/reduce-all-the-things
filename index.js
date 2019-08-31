@@ -1,27 +1,23 @@
 #!/usr/bin/env node
-
+const fs = require('fs');
 const inquirer = require('inquirer');
 const shell = require('shelljs');
 
-const filePaths = [
-    '01-anatomy-of-reduce',
-    '02-map-filter-reduce',
-    '03-math',
-    '04-duplicates',
-    '05-vote',
-    '06-group',
-    '07-pipe-compose',
-    '08-compose-promises',
-    '09-object-to-array'
-];
+const reducedPaths = fs.readdirSync('./topics').reduce((paths, currentPath) => {
+    if (currentPath.includes('.js')) {
+        const [fileName] = currentPath.split('.');
+        paths.push(fileName);
+    }
+    return paths;
+}, []);
 
 const askQuestions = () => {
     return inquirer.prompt([
         {
-            name: 'TOPIC',
-            type: 'list',
+            choices: reducedPaths,
             message: 'Which file would you like to run?',
-            choices: filePaths
+            name: 'TOPIC',
+            type: 'list'
         }
     ]);
 };
@@ -29,7 +25,7 @@ const askQuestions = () => {
 const init = async () => {
     const answers = await askQuestions();
     const { TOPIC } = answers;
-    shell.exec(`nodemon ${TOPIC}.js`);
-}
+    shell.exec(`nodemon ./topics/${TOPIC}.js`);
+};
 
 init();

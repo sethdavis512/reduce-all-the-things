@@ -1,6 +1,6 @@
 // Data
-const { shapesArray } = require('./data');
-const { line, spacer } = require('./utils');
+const { shapesArray } = require('../utils/data');
+const { line, spacer } = require('../utils/utilFunctions');
 
 // ANATOMY OF REDUCE
 // Reduce takes two arguments
@@ -12,7 +12,12 @@ const { line, spacer } = require('./utils');
 //        - Current Item
 //        - Current Index (optional)
 //        - Source Array (optional)
-const reducerFunction = (accumulator, currentItem, currentIndex, sourceArray) => {
+const reducerFunction = (
+    accumulator,
+    currentItem,
+    currentIndex,
+    sourceArray
+) => {
     // Lets see what we're working with...
     console.log('ITEM NUMBER:', currentIndex);
     console.log(line);

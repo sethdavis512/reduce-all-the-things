@@ -1,6 +1,6 @@
 // Data
-const { votesArray } = require('./data');
-const { spacer } = require('./utils');
+const { votesArray } = require('../utils/data');
+const { spacer } = require('../utils/utilFunctions');
 
 // VOTING: ARRAY => OBJECT
 // For most of our previous examples,

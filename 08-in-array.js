@@ -1,1 +1,0 @@
-const inArray = (arr, checkValue) => arr.reduce((acc, cur) => (acc || cur.value === checkValue), false);

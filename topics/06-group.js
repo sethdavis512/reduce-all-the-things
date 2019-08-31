@@ -1,6 +1,6 @@
 // Data
-const { shapesArray } = require('./data');
-const { spacer } = require('./utils');
+const { shapesArray } = require('../utils/data');
+const { spacer } = require('../utils/utilFunctions');
 
 // GROUPING
 // Yet another useful way to use `.reduce()`
@@ -28,15 +28,13 @@ const shapeGroups = {
     CHEESE: []
 };
 
-const groupedShapesWithKeys = shapesArray.reduce(
-    (shapesObj, currentShape) => {
-        // If group exists push it to the group's array
-        if (shapesObj[currentShape.type]) {
-            shapesObj[currentShape.type].push(currentShape)
-        }
-        return shapesObj;
-    }, shapeGroups
-);
+const groupedShapesWithKeys = shapesArray.reduce((shapesObj, currentShape) => {
+    // If group exists push it to the group's array
+    if (shapesObj[currentShape.type]) {
+        shapesObj[currentShape.type].push(currentShape);
+    }
+    return shapesObj;
+}, shapeGroups);
 
 console.log('PREDETERMINED GROUPS');
 // CHEESE was not a shape, it will remain empty

@@ -1,4 +1,4 @@
-const { spacer } = require('./utils');
+const { spacer } = require('../utils/utilFunctions');
 
 // PIPING - REDUCE LEFT TO RIGHT
 
@@ -39,7 +39,8 @@ console.log(spacer);
 
 // COMPOSE
 // Same as pipe just starts from the right side of the array
-const compose = (...fns) => input => [...fns].reduceRight((acc, fn) => fn(acc), input);
+const compose = (...fns) => input =>
+    [...fns].reduceRight((acc, fn) => fn(acc), input);
 console.log('COMPOSE');
 
 // Generic functions

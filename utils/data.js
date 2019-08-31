@@ -1,11 +1,11 @@
-const { randomNumber } = require('./utils');
+const { randomNumber } = require('../utils/utilFunctions');
 
 // Data
 const Shapes = {
-    CIRCLE: 'CIRCLE',
-    SQUARE: 'SQUARE',
-    TRIANGLE: 'TRIANGLE'
-}
+    CIRCLE: 'Circle',
+    SQUARE: 'Square',
+    TRIANGLE: 'Triangle'
+};
 
 const Colors = {
     RED: 'Red',
@@ -13,9 +13,9 @@ const Colors = {
     GREEN: 'Green',
     YELLOW: 'Yellow',
     ORANGE: 'Orange'
-}
+};
 
-const CHUYS = 'Chuy\'s';
+const CHUYS = "Chuy's";
 const P_TERRYS = 'P.Terrys';
 const HULA_HUT = 'Hula Hut';
 
@@ -59,7 +59,7 @@ const locations = {
     beta: 'London',
     charlie: 'Australia',
     delta: 'Mexico'
-}
+};
 
 module.exports = {
     duplicateShapesArray,
