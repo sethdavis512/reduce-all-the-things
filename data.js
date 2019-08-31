@@ -54,9 +54,17 @@ const hugeArray = Array(50000)
     .fill(null)
     .map(() => shapesArray[randomNumber(shapesArray.length)]);
 
+const locations = {
+    alpha: 'Rome',
+    beta: 'London',
+    charlie: 'Australia',
+    delta: 'Mexico'
+}
+
 module.exports = {
     duplicateShapesArray,
     hugeArray,
+    locations,
     numberArray,
     shapesArray,
     votesArray

@@ -4,14 +4,15 @@ const inquirer = require('inquirer');
 const shell = require('shelljs');
 
 const filePaths = [
-    '01-anatomy-of-reduce.js',
-    '02-map-filter-reduce.js',
-    '03-math.js',
-    '04-duplicates.js',
-    '05-vote.js',
-    '06-group.js',
-    '07-pipe-compose.js',
-    '08-compose-promises.js'
+    '01-anatomy-of-reduce',
+    '02-map-filter-reduce',
+    '03-math',
+    '04-duplicates',
+    '05-vote',
+    '06-group',
+    '07-pipe-compose',
+    '08-compose-promises',
+    '09-object-to-array'
 ];
 
 const askQuestions = () => {
@@ -28,7 +29,7 @@ const askQuestions = () => {
 const init = async () => {
     const answers = await askQuestions();
     const { TOPIC } = answers;
-    shell.exec(`nodemon ${TOPIC}`);
+    shell.exec(`nodemon ${TOPIC}.js`);
 }
 
 init();
