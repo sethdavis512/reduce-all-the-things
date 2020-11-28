@@ -18,8 +18,8 @@
     },
     "homepage": "https://github.com/setholito/reduce-all-the-things#readme",
     "devDependencies": {
-        "inquirer": "^6.5.1",
-        "nodemon": "^1.18.7",
-        "shelljs": "^0.8.3"
+        "inquirer": "^7.3.3",
+        "nodemon": "^2.0.6",
+        "shelljs": "^0.8.4"
     }
 }
