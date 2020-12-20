@@ -1,5 +1,3 @@
-const { spacer } = require('../utils/utilFunctions');
-
 // PIPING - REDUCE LEFT TO RIGHT
 
 // Piping is a very useful technique which allows
@@ -35,7 +33,6 @@ const multiply9 = pipe(
     triple
 );
 console.log('multiply9(6):', multiply9(6));
-console.log(spacer);
 
 // COMPOSE
 // Same as pipe just starts from the right side of the array

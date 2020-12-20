@@ -1,6 +1,5 @@
 // Data
 const { duplicateShapesArray } = require('../utils/data');
-const { spacer } = require('../utils/utilFunctions');
 
 // REMOVE DUPLICATES: ARRAY => ARRAY
 // A very useful way to find unique items in array
@@ -17,11 +16,9 @@ const uniqueShapes = duplicateShapesArray.reduce((uniqueArr, currentItem) => {
 
 console.log('DUPLICATES');
 console.log(duplicateShapesArray);
-console.log(spacer);
 
 console.log('UNIQUE SHAPES');
 console.log(uniqueShapes);
-console.log(spacer);
 
 // We can take this a litte further and compose
 // a function that returns unique values based on key.

@@ -1,6 +1,5 @@
 // Data
 const { votesArray } = require('../utils/data');
-const { spacer } = require('../utils/utilFunctions');
 
 // VOTING: ARRAY => OBJECT
 // For most of our previous examples,
@@ -19,7 +18,6 @@ const voteResult = votesArray.reduce((voteTally, currentVote) => {
 
 console.log('VOTE ARRAY');
 console.log(votesArray);
-console.log(spacer);
 
 console.log('VOTE RESULTS');
 console.log(voteResult);

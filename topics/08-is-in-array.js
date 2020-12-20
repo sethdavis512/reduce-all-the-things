@@ -1,5 +1,4 @@
 const { shapesArray } = require('../utils/data');
-const { line } = require('../utils/utilFunctions');
 
 // IS IN ARRAY
 // Use reduce to find objects in array.
@@ -13,7 +12,6 @@ const checkCircleReducer = (initialBoolean, currentItem) => {
 };
 const hasCircle = shapesArray.reduce(checkCircleReducer, false);
 console.log('hasCircle:', hasCircle);
-console.log(line);
 
 // We can create a function to do this for use!
 const isInArray = (itemsArray, checkKey, checkValue) => {

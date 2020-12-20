@@ -1,6 +1,5 @@
 // Data
 const { shapesArray } = require('../utils/data');
-const { line, spacer } = require('../utils/utilFunctions');
 
 // ANATOMY OF REDUCE
 // Reduce takes two arguments
@@ -20,12 +19,10 @@ const reducerFunction = (
 ) => {
     // Lets see what we're working with...
     console.log('ITEM NUMBER:', currentIndex);
-    console.log(line);
     console.log('accumulator:', accumulator);
     console.log('currentItem:', currentItem);
     console.log('currentIndex:', currentIndex);
     console.log('sourceArray:', sourceArray);
-    console.log(spacer);
 
     // Always return the accumulator!
     return accumulator;

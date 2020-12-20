@@ -1,6 +1,5 @@
 // Data
 const { shapesArray } = require('../utils/data');
-const { spacer } = require('../utils/utilFunctions');
 
 // GROUPING
 // Yet another useful way to use `.reduce()`
@@ -19,7 +18,6 @@ const groupedShapes = shapesArray.reduce((shapesObj, currentShape) => {
 
 console.log('GROUPED SHAPES');
 console.log(groupedShapes);
-console.log(spacer);
 
 // We can create an `initialValue` to predefine groups
 const shapeGroups = {
@@ -39,7 +37,6 @@ const groupedShapesWithKeys = shapesArray.reduce((shapesObj, currentShape) => {
 console.log('PREDETERMINED GROUPS');
 // CHEESE was not a shape, it will remain empty
 console.log(groupedShapesWithKeys);
-console.log(spacer);
 
 // We'll apply the grouping concept to a real life situation
 // We have a set of scores and we'll group them by groupNumber
@@ -104,7 +101,6 @@ const topScoresByGroup = (arr, groupNumber, numTopScores) => {
 
 console.log('TOP SCORES BY GROUP NUMBER');
 console.log(topScoresByGroup(scores, 1, 3));
-console.log(spacer);
 
 console.log('TOP SCORES BY GROUPS');
 console.log(topScoresByGroup(scores, null, 2));

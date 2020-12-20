@@ -1,6 +1,5 @@
 // Data
 const { hugeArray, shapesArray } = require('../utils/data');
-const { spacer } = require('../utils/utilFunctions');
 
 // .map() vs. .filter() vs. .reduce()
 
@@ -14,7 +13,6 @@ const mapFunction = (shape, index) => ({
 });
 const mappedShapesArray = shapesArray.map(mapFunction);
 console.log(mappedShapesArray);
-console.log(spacer);
 
 // Filter - Similar story here. Filter on its own can
 // perform simple filters just fine. Straight forward, simple.
@@ -22,7 +20,6 @@ console.log(spacer);
 const filterFunction = shape => shape.type !== 'SQUARE';
 const filteredShapesArray = shapesArray.filter(filterFunction);
 console.log(filteredShapesArray);
-console.log(spacer);
 
 // Let's chain the two together
 // Here we're going to see how long it takes to `map` and `filter`
@@ -53,7 +50,6 @@ const reducedShapesArr = shapesArray.reduce(
 console.timeEnd('Reduce');
 // No not really...That's ok. Chaining methods can make your code
 // very explicit, which will help other devs.
-console.log(spacer);
 
 // SPEED TEST 2
 // What happens when we throw 50,000 records at these functions?
