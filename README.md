@@ -10,11 +10,13 @@ You'll be prompted to choose a topic. Once you hit enter, `nodemon` will watch t
 
 ## Topics
 
-1. [Anatomy of Reduce](./01-anatomy-of-reduce.js)
-2. [Map vs. Filter vs. Reduce](./02-map-filter-reduce.js)
-3. [Math Stuff](./03-math.js)
-4. [Duplicates](./04-duplicates.js)
-5. [Vote](./05-vote.js)
-6. [Group](./06-group.js)
-7. [Pipe & Compose](./07-pipe-compose.js)
-8. [Compose Promises](./08-compose-promises.js)
+1. [Anatomy of Reduce](topics/01-anatomy-of-reduce.js)
+2. [Map vs. Filter vs. Reduce](topics/02-map-filter-reduce.js)
+3. [Math](topics/03-math.js)
+4. [Duplicates](topics/04-duplicates.js)
+5. [Vote](topics/05-vote.js)
+6. [Group](topics/06-group.js)
+7. [Object to array](topics/07-object-to-array.js)
+8. [isInArray](topics/08-is-in-array.js)
+9. [Pipe & Compose](topics/09-pipe-compose.js)
+10. [Compose Promises](topics/10-pipe-promises.js)

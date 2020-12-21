@@ -27,7 +27,7 @@ const multiply6 = pipe(
     double,
     triple
 );
-prettyLog('MULTIPLY BY 6', multiply6(6));
+prettyLog('MULTIPLY BY 6', multiply6(pipeNumber));
 
 // `triple` will be called first, then
 // `triple` will be called with the result of the first `triple`
@@ -35,7 +35,7 @@ const multiply9 = pipe(
     triple,
     triple
 );
-prettyLog('MULTIPLY BY 9', multiply9(6));
+prettyLog('MULTIPLY BY 9', multiply9(pipeNumber));
 
 // `double` will be called first, then
 // `triple` will be called with the result of `double`
@@ -45,7 +45,7 @@ const multiply24 = pipe(
     triple,
     quadruple
 );
-prettyLog('MULTIPLY BY 24', multiply24(6));
+prettyLog('MULTIPLY BY 24', multiply24(pipeNumber));
 
 // COMPOSE
 // Same as pipe just starts from the right side of the array
@@ -67,9 +67,9 @@ const kebabCased = kebabCase(saying);
 prettyLog('SAYING - KEBAB CASED', kebabCased);
 
 // Another string manipulation example
-const scream = str => str.toUpperCase();
-const exclaim = str => `${str}!`;
 const repeat = str => `${str} ${str}`;
+const exclaim = str => `${str}!`;
+const scream = str => str.toUpperCase();
 
 const composeSaying = compose(
     repeat,
