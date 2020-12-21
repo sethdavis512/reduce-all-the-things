@@ -1,71 +1,43 @@
+const faker = require('faker');
 const { randomNumber } = require('../utils/utilFunctions');
 
 // Data
-const Shapes = {
-    CIRCLE: 'Circle',
-    SQUARE: 'Square',
-    TRIANGLE: 'Triangle'
-};
-
-const Colors = {
-    RED: 'Red',
-    BLUE: 'Blue',
-    GREEN: 'Green',
-    YELLOW: 'Yellow',
-    ORANGE: 'Orange'
-};
-
-const CHUYS = "Chuy's";
-const P_TERRYS = 'P.Terrys';
-const HULA_HUT = 'Hula Hut';
-
 const shapesArray = [
-    { type: Shapes.CIRCLE, color: Colors.BLUE },
-    { type: Shapes.SQUARE, color: Colors.RED },
-    { type: Shapes.TRIANGLE, color: Colors.GREEN }
+    { type: 'Circle', color: 'Blue' },
+    { type: 'Square', color: 'Red' },
+    { type: 'Triangle', color: 'Green' }
 ];
-
-const duplicateShapesArray = [
-    { type: Shapes.CIRCLE, color: Colors.BLUE },
-    { type: Shapes.CIRCLE, color: Colors.RED },
-    { type: Shapes.CIRCLE, color: Colors.GREEN },
-    { type: Shapes.CIRCLE, color: Colors.BLUE },
-    { type: Shapes.SQUARE, color: Colors.YELLOW },
-    { type: Shapes.SQUARE, color: Colors.RED },
-    { type: Shapes.TRIANGLE, color: Colors.BLUE },
-    { type: Shapes.TRIANGLE, color: Colors.ORANGE }
-];
-
-const votesArray = [
-    CHUYS,
-    CHUYS,
-    CHUYS,
-    P_TERRYS,
-    P_TERRYS,
-    P_TERRYS,
-    P_TERRYS,
-    HULA_HUT,
-    HULA_HUT
-];
-
-const numberArray = [12, 15, 30, 38, 10];
 
 const hugeArray = Array(50000)
     .fill(null)
     .map(() => shapesArray[randomNumber(shapesArray.length)]);
 
-const locations = {
-    alpha: 'Rome',
-    beta: 'London',
-    charlie: 'Australia',
-    delta: 'Mexico'
+const schedule = {
+    january: {
+        location: faker.address.country()
+    },
+    february: {
+        location: faker.address.country()
+    },
+    march: {
+        location: faker.address.country()
+    }
 };
 
+const studentScores = Array(20)
+    .fill(null)
+    .map(_ => ({
+        name: faker.name.findName(),
+        groupNumber: faker.random.number(3) + 1,
+        score: faker.random.number({
+            min: 50,
+            max: 100
+        })
+    }));
+
 module.exports = {
-    duplicateShapesArray,
     hugeArray,
-    locations,
-    numberArray,
+    schedule,
     shapesArray,
-    votesArray
+    studentScores
 };

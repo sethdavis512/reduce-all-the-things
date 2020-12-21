@@ -1,3 +1,5 @@
+const { prettyLog } = require('../utils/utilFunctions');
+
 // Data
 const { shapesArray } = require('../utils/data');
 
@@ -18,11 +20,13 @@ const reducerFunction = (
     sourceArray
 ) => {
     // Lets see what we're working with...
-    console.log('ITEM NUMBER:', currentIndex);
-    console.log('accumulator:', accumulator);
-    console.log('currentItem:', currentItem);
-    console.log('currentIndex:', currentIndex);
-    console.log('sourceArray:', sourceArray);
+    prettyLog('INSIDE THE REDUCER', {
+        currentIndex,
+        accumulator,
+        currentItem,
+        currentIndex,
+        sourceArray
+    });
 
     // Always return the accumulator!
     return accumulator;
@@ -35,4 +39,4 @@ const initialValue = [];
 // `reducedShapesArr` return as an empty array
 //  We aren't telling reduce to do anything with the accumulator (initialValue).
 const reducedShapesArr = shapesArray.reduce(reducerFunction, initialValue);
-console.log('reducedShapesArr:', reducedShapesArr);
+prettyLog('REDUCED SHAPES ARRAY', reducedShapesArr);

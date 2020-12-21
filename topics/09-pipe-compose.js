@@ -1,3 +1,5 @@
+const { prettyLog } = require('../utils/utilFunctions');
+
 // PIPING - REDUCE LEFT TO RIGHT
 
 // Piping is a very useful technique which allows
@@ -10,12 +12,13 @@
 const double = x => x * 2;
 const triple = x => x * 3;
 const quadruple = x => x * 4;
+
 // Variables
+const pipeNumber = 6;
 const saying = 'Reduce all the things';
 
 // PIPE
 const pipe = (...fns) => input => [...fns].reduce((acc, fn) => fn(acc), input);
-console.log('PIPE');
 
 // Pipe a function
 // `double` will be called first, then
@@ -24,7 +27,7 @@ const multiply6 = pipe(
     double,
     triple
 );
-console.log('multiply6(6):', multiply6(6));
+prettyLog('MULTIPLY BY 6', multiply6(6));
 
 // `triple` will be called first, then
 // `triple` will be called with the result of the first `triple`
@@ -32,13 +35,22 @@ const multiply9 = pipe(
     triple,
     triple
 );
-console.log('multiply9(6):', multiply9(6));
+prettyLog('MULTIPLY BY 9', multiply9(6));
+
+// `double` will be called first, then
+// `triple` will be called with the result of `double`
+// `quadruple` will be called with the result of `triple`
+const multiply24 = pipe(
+    double,
+    triple,
+    quadruple
+);
+prettyLog('MULTIPLY BY 24', multiply24(6));
 
 // COMPOSE
 // Same as pipe just starts from the right side of the array
 const compose = (...fns) => input =>
     [...fns].reduceRight((acc, fn) => fn(acc), input);
-console.log('COMPOSE');
 
 // Generic functions
 const lowercase = str => str.toLowerCase();
@@ -51,8 +63,8 @@ const kebabCase = compose(
     lowercase,
     replaceSpaces
 );
-const myString = kebabCase(saying);
-console.log(myString);
+const kebabCased = kebabCase(saying);
+prettyLog('SAYING - KEBAB CASED', kebabCased);
 
 // Another string manipulation example
 const scream = str => str.toUpperCase();
@@ -64,5 +76,5 @@ const composeSaying = compose(
     exclaim,
     scream
 );
-const mySaying = composeSaying(saying);
-console.log(mySaying);
+const composedSaying = composeSaying(saying);
+prettyLog('SAYING - COMPOSED', composedSaying);

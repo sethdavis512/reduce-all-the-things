@@ -1,73 +1,67 @@
-// Data
-const { shapesArray } = require('../utils/data');
+const { prettyLog } = require('../utils/utilFunctions');
 
-// GROUPING
+// Data
+const { shapesArray, studentScores } = require('../utils/data');
+
+// GROUPING 1 ==========
 // Yet another useful way to use `.reduce()`
 // Dynamically group items based on keys within an object.
 const groupedShapes = shapesArray.reduce((shapesObj, currentShape) => {
+    const upperCaseCurrentShape = currentShape.type.toUpperCase();
     // If no shape type in accumulator...
-    if (!shapesObj[currentShape.type]) {
+    if (!shapesObj[upperCaseCurrentShape]) {
         // Add it into a new array!
-        shapesObj[currentShape.type] = [currentShape];
+        shapesObj[upperCaseCurrentShape] = [currentShape];
     } else {
         // If key does exist on accumulator, push to its array.
-        shapesObj[currentShape.type].push(currentShape);
+        shapesObj[upperCaseCurrentShape].push(currentShape);
     }
+
     return shapesObj;
 }, {});
+prettyLog('GROUPED SHAPES BY TYPE', groupedShapes);
 
-console.log('GROUPED SHAPES');
-console.log(groupedShapes);
-
-// We can create an `initialValue` to predefine groups
+// GROUPING 2 ==========
+// We can create an `initialValue` to pre-define groups
 const shapeGroups = {
     CIRCLE: [],
     SQUARE: [],
     CHEESE: []
 };
-
 const groupedShapesWithKeys = shapesArray.reduce((shapesObj, currentShape) => {
+    const upperCaseCurrentShape = currentShape.type.toUpperCase();
     // If group exists push it to the group's array
-    if (shapesObj[currentShape.type]) {
-        shapesObj[currentShape.type].push(currentShape);
+    if (shapesObj[upperCaseCurrentShape]) {
+        shapesObj[upperCaseCurrentShape].push(currentShape);
     }
+
     return shapesObj;
 }, shapeGroups);
+prettyLog('PREDETERMINED GROUPS', groupedShapesWithKeys);
 
-console.log('PREDETERMINED GROUPS');
-// CHEESE was not a shape, it will remain empty
-console.log(groupedShapesWithKeys);
-
+// GROUPING 3 ==========
 // We'll apply the grouping concept to a real life situation
 // We have a set of scores and we'll group them by groupNumber
-const scores = [
-    { groupNumber: 1, score: 80 },
-    { groupNumber: 2, score: 91 },
-    { groupNumber: 2, score: 77 },
-    { groupNumber: 4, score: 91 },
-    { groupNumber: 4, score: 95 },
-    { groupNumber: 1, score: 99 },
-    { groupNumber: 1, score: 60 },
-    { groupNumber: 3, score: 64 },
-    { groupNumber: 1, score: 91 },
-    { groupNumber: 3, score: 100 }
-];
-
-const topScoresByGroup = (arr, groupNumber, numTopScores) => {
+const topScoresByGroup = (arr = [], groupNumber = null, numTopScores = 1) => {
     // Reduce items into specific groups
     const groupedScores = arr.reduce((scores, student) => {
-        const groupId = `group${student.groupNumber}`;
+        const groupId = `GROUP${student.groupNumber}`;
         const template = {
             average: 0,
             topScores: [],
             scores: []
         };
 
-        if (scores[groupId] === undefined) {
+        const studentWithScore = {
+            name: student.name,
+            score: student.score
+        }
+
+        if (!scores[groupId]) {
             scores[groupId] = template;
-            scores[groupId].scores.push(student.score);
+            scores[groupId].scores.push(studentWithScore);
         } else {
-            scores[groupId].scores.push(student.score);
+            scores[groupId].scores.push(studentWithScore);
         }
 
         return scores;
@@ -77,7 +71,7 @@ const topScoresByGroup = (arr, groupNumber, numTopScores) => {
     for (let group in groupedScores) {
         // Find the average (reduce to get the sum!)
         const sumOfAllScores = groupedScores[group].scores.reduce(
-            (acc, cur) => acc + cur,
+            (acc, cur) => acc + cur.score,
             0
         );
         const numberOfScores = groupedScores[group].scores.length;
@@ -87,20 +81,18 @@ const topScoresByGroup = (arr, groupNumber, numTopScores) => {
         groupedScores[group].average = Math.ceil(averageScore);
 
         // Take numTopScores off of scores array, add to topScores
-        groupedScores[group].topScores = groupedScores[group].scores
-            .sort((a, b) => b - a)
-            .slice(0, numTopScores);
+        const sortedAndSliced = groupedScores[group].scores
+            .sort((a, b) => b.score - a.score)
+            .slice(0, numTopScores)
+        groupedScores[group].topPerformer = sortedAndSliced[0];
+        groupedScores[group].topScores = sortedAndSliced;
     }
 
     if (groupNumber) {
-        return groupedScores[`group${groupNumber}`];
+        return groupedScores[`GROUP${groupNumber}`];
     }
 
     return groupedScores;
 };
-
-console.log('TOP SCORES BY GROUP NUMBER');
-console.log(topScoresByGroup(scores, 1, 3));
-
-console.log('TOP SCORES BY GROUPS');
-console.log(topScoresByGroup(scores, null, 2));
+prettyLog('TOP SCORES BY GROUPS', topScoresByGroup(studentScores, null, 2));
+prettyLog('TOP SCORES IN GROUP 1', topScoresByGroup(studentScores, 1, 2));

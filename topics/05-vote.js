@@ -1,5 +1,21 @@
+const { prettyLog } = require('../utils/utilFunctions');
+
 // Data
-const { votesArray } = require('../utils/data');
+const CHUYS = "Chuy's";
+const P_TERRYS = 'P.Terrys';
+const HULA_HUT = 'Hula Hut';
+
+const votesArray = [
+    CHUYS,
+    CHUYS,
+    CHUYS,
+    P_TERRYS,
+    P_TERRYS,
+    P_TERRYS,
+    P_TERRYS,
+    HULA_HUT,
+    HULA_HUT
+];
 
 // VOTING: ARRAY => OBJECT
 // For most of our previous examples,
@@ -16,8 +32,5 @@ const voteResult = votesArray.reduce((voteTally, currentVote) => {
     return voteTally;
 }, {});
 
-console.log('VOTE ARRAY');
-console.log(votesArray);
-
-console.log('VOTE RESULTS');
-console.log(voteResult);
+prettyLog('VOTES ARRAY', votesArray);
+prettyLog('VOTE RESULTS', voteResult);

@@ -1,13 +1,17 @@
-const { locations } = require('../utils/data');
+const { prettyLog } = require('../utils/utilFunctions');
+
+// Data
+const { schedule } = require('../utils/data');
 
 // Object to Array
-// aasdfkasdfkasdfkkasdfkasdkfkasdf
+const getLocations = scheduleObj =>
+    Object.keys(scheduleObj).reduce((allLocations, month) => {
+        if (scheduleObj[month] && scheduleObj[month].location) {
+            allLocations.push(scheduleObj[month].location);
+        }
 
-const getLocations = obj => {
-    return Object.keys(obj).reduce((acc, cur) => {
-        acc.push(obj[cur]);
-        return acc;
+        return allLocations;
     }, []);
-};
-const locationsArr = getLocations(locations);
-console.log(locationsArr);
+
+const locationsArr = getLocations(schedule);
+prettyLog('LOCATIONS', locationsArr);
